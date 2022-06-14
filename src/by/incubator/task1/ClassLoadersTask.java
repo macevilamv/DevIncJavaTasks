@@ -3,6 +3,7 @@ package by.incubator.task1;
 public class ClassLoadersTask {
 
     public static void main(String[] args) {
+
         ClassLoadersTask classLoaders = new ClassLoadersTask();
         MyClass myClass = new MyClass();
         System.out.println("main class loader: " + classLoaders.getClass().getClassLoader());
