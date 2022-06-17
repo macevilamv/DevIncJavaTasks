@@ -1,3 +1,5 @@
+package by.incubator.task2;
+
 import by.devInc.module2.task1.Main;
 import java.net.MalformedURLException;
 import java.net.URL;
