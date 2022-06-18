@@ -10,7 +10,7 @@ public class JarTask {
     public static void main(String[] args) throws MalformedURLException, ClassNotFoundException {
         URL [] classLoaderUrls = {new URL("file:///H:\\IdeaProjects\\DevIncJavaTasks\\out\\example.jar")};
         URLClassLoader urlClassLoader = new URLClassLoader(classLoaderUrls);
-        Class uploaded = urlClassLoader.loadClass("by.incubator.task2.Main");
+        Class uploaded = urlClassLoader.loadClass("by.devInc.module2.task1.Main");
         try {
             Main instance = (Main) uploaded.newInstance();
             instance.main(new String[]{});
