@@ -21,7 +21,3 @@ public class ClassLoadersTask {
         System.out.println("MyClass loader 2-nd gen parent: " + myClass.getClass().getClassLoader().getParent().getParent());
     }
 }
-
-class MyClass {
-
-}
