@@ -30,6 +30,3 @@ public class Monitoring {
     }
 }
 
-interface MonitoringSystem {
-    void startMonitoring();
-}
