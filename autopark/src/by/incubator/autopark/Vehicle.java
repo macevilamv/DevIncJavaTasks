@@ -7,27 +7,38 @@ public class Vehicle implements Comparable <Vehicle>{
     private VehicleType type;
     private CarColor color;
     private String model;
-    private String stateNumber;
+    private String registrationNumber;
     private double mass;
-    private double mileage;
-    private int yearOfIssue;
+    private int mileage;
+    private int manufactureYear;
 
-    public Vehicle() {}
 
-    public Vehicle (VehicleType type, CarColor color, String model, String stateNumber, double mass,
-                    double mileage, int yearOfIssue) {
+    Vehicle ()
+    {
+        type = new VehicleType("DEFAULT", 0);
+        model = "DEFAULT";
+        registrationNumber = "DEFAULT";
+        manufactureYear = 0;
+        color = CarColor.WHITE;
+        registrationNumber = "DEFAULT";
+        mass = 0.0;
+    }
 
-        this.type = type;
-        this.color = color;
-        this.model = model;
-        this.stateNumber = stateNumber;
-        this.mass = mass;
-        this.mileage = mileage;
-        this.yearOfIssue = yearOfIssue;
+    public Vehicle (VehicleType type, CarColor color, String model, String registrationNumber, double mass,
+                    int mileage, int manufactureYear)
+    {
+        setType (type);
+        setColor (color);
+        setModel (model);
+        setRegistrationNumber (registrationNumber);
+        setMass (mass);
+        setMileage (mileage);
+        setManufactureYear (manufactureYear);
+
     }
 
     public double getCalcTaxPerMonth () {
-        return (this.mass * 0.0013) + (type.getTaxCoefficient()*30) + 5;
+        return (this.mass * 0.0013) + (type.getTaxCoefficient() * 30) + 5;
     }
 
     @Override
@@ -35,10 +46,10 @@ public class Vehicle implements Comparable <Vehicle>{
         return type.getTypeName() + ", "
                 + model + ", "
                 + color + ", "
-                + stateNumber + ", "
+                + registrationNumber + ", "
                 + mass + ", "
                 + mileage + ", "
-                + yearOfIssue + ", "
+                + manufactureYear + ", "
                 + getCalcTaxPerMonth();
     }
 
@@ -53,6 +64,7 @@ public class Vehicle implements Comparable <Vehicle>{
         } else {
             return false;
         }
+
     }
 
     @Override
@@ -62,19 +74,18 @@ public class Vehicle implements Comparable <Vehicle>{
 
     @Override
     public int compareTo (Vehicle obj) {
-        Vehicle secondVehicle = (Vehicle) obj;
 
-        if (this.yearOfIssue == secondVehicle.yearOfIssue) {
+        if (this.manufactureYear == ((Vehicle) obj).manufactureYear) {
 
-            if (this.mileage == secondVehicle.mileage) {
+            if (this.mileage == ((Vehicle) obj).mileage) {
                 return 0;
-            } else if (this.mileage > secondVehicle.mileage) {
+            } else if (this.mileage > ((Vehicle) obj).mileage) {
                 return 1;
             } else {
                 return -1;
             }
 
-        } else if (this.yearOfIssue > secondVehicle.yearOfIssue) {
+        } else if (this.manufactureYear > ((Vehicle) obj).manufactureYear) {
             return 1;
         } else {
             return -1;
@@ -85,55 +96,93 @@ public class Vehicle implements Comparable <Vehicle>{
         return type;
     }
 
-    public void setType (VehicleType type) {
-        this.type = type;
-    }
-
     public CarColor getColor() {
         return color;
-    }
-
-    public void setColor (CarColor color) {
-        this.color = color;
     }
 
     public String getModel() {
         return model;
     }
 
-    public void setModel (String model) {
-        this.model = model;
-    }
-
-    public String getStateNumber() {
-        return stateNumber;
-    }
-
-    public void setStateNumber (String stateNumber) {
-        this.stateNumber = stateNumber;
+    public String getRegistrationNumber() {
+        return registrationNumber;
     }
 
     public double getMass() {
         return mass;
     }
 
-    public void setMass (double mass) {
-        this.mass = mass;
+    public int getManufactureYear() {
+        return manufactureYear;
     }
 
-    public double getMileage() {
+    public int getMileage() {
         return mileage;
     }
 
-    public void setMileage (double mileage) {
-        this.mileage = mileage;
+    public void setModel (String model) {
+
+        if (TechnicalSpecialist.validateModelName (model)) {
+            this.model = model;
+        } else {
+            this.model = "DEFAULT";
+        }
+
     }
 
-    public int getYearOfIssue() {
-        return yearOfIssue;
+    public void setRegistrationNumber (String registrationNumber) {
+
+        if (TechnicalSpecialist.validateRegistrationNumber (registrationNumber)) {
+            this.registrationNumber = registrationNumber;
+        } else {
+            this.registrationNumber = "DEFAULT";
+        }
     }
 
-    public void setYearOfIssue (int yearOfIssue) {
-        this.yearOfIssue = yearOfIssue;
+    public void setType (VehicleType type) {
+
+        if (TechnicalSpecialist.validateVehicleType (type)) {
+            this.type = type;
+        } else {
+            this.type = new VehicleType ("default", 0);
+        }
     }
+
+    public void setMass (double mass) {
+
+        if (TechnicalSpecialist.validateWeight (mass)) {
+            this.mass = mass;
+        } else {
+            this.mass = 0.0;
+        }
+    }
+
+    public void setColor (CarColor color) {
+
+        if (TechnicalSpecialist.validateColor (color)) {
+            this.color = color;
+        } else {
+            this.color = CarColor.WHITE;
+        }
+    }
+
+    public void setMileage (int mileage) {
+
+        if (TechnicalSpecialist.validateMileage (mileage)) {
+            this.mileage = mileage;
+        } else {
+            this.mileage = 0;
+        }
+    }
+
+    public void setManufactureYear (int manufactureYear) {
+
+        if (TechnicalSpecialist.validateManufactureYear (manufactureYear)) {
+            this.manufactureYear = manufactureYear;
+        } else {
+            manufactureYear = 0;
+        }
+
+    }
+
 }

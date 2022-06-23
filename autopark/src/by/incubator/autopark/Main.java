@@ -76,13 +76,13 @@ public class Main {
                 new Vehicle (vehicleTypes[2],CarColor.YELLOW, "Hamm HD 12 VV",
                         null, 3000, 122, 2016),
                 new Vehicle (vehicleTypes[3],CarColor.RED, "МТЗ Беларус-1025.4",
-                        "1145 АВ-7", 1200, 109, 2020),
+                        "1145 AB-7", 1200, 109, 2020),
         };
 
-        vehicleUtil.print(vehicles);
-        vehicleUtil.sort(vehicles);
-        vehicleUtil.print(vehicles);
-        vehicleUtil.findMeliageExtrema(vehicles);
+        vehicleUtil.print (vehicles);
+        vehicleUtil.sort (vehicles);
+        vehicleUtil.print (vehicles);
+        vehicleUtil.findMeliageExtrema (vehicles);
     }
 
 }
