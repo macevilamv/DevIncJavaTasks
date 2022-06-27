@@ -61,8 +61,7 @@ public class Vehicle implements Comparable <Vehicle>{
     }
 
     @Override
-    public int compareTo (Vehicle obj) {
-        Vehicle secondVehicle = (Vehicle) obj;
+    public int compareTo (Vehicle secondVehicle) {
 
         if (this.yearOfIssue == secondVehicle.yearOfIssue) {
 
