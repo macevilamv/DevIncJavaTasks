@@ -7,14 +7,12 @@ public class Student {
     final String firstName;
     final double averageGrade;
 
-    public Student(String lastName, String firstName, double averageGrade) {
-
+    public Student (String lastName, String firstName, double averageGrade) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.averageGrade = averageGrade;
-        studentsCounter += 1;
+        studentsCounter++;
         System.out.println("Constructor with parameters is executed - " + studentsCounter);
-
     }
 
     @Override
