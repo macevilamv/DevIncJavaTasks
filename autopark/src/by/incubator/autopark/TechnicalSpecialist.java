@@ -24,7 +24,12 @@ public class TechnicalSpecialist {
     }
 
     public static boolean validateVehicleType (VehicleType type) {
-        return !(type.getTypeName().equals("")) && type.getTypeName() != null &&
+
+        if (type == null) {
+            return false;
+        }
+
+        return type.getTypeName() != null && !(type.getTypeName().isEmpty()) &&
                 type.getTaxCoefficient() >= 0;
     }
 
@@ -34,7 +39,7 @@ public class TechnicalSpecialist {
             return false;
         }
 
-        Pattern pattern = Pattern.compile("\\d{4}\\s[A-Z]{2}-\\d");
+        Pattern pattern = Pattern.compile("\\d{4}\\s[A-Z]{2}-[0-7]");
         Matcher matcher = pattern.matcher(number);
 
         if (matcher.matches()) {
@@ -45,7 +50,7 @@ public class TechnicalSpecialist {
     }
 
     public static boolean validateModelName (String name) {
-        return !(name.equals(""));
+        return !(name.isEmpty());
     }
 
 }
