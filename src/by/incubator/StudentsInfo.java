@@ -28,7 +28,6 @@ public class StudentsInfo {
     }
 
     private static double countAverage (Student [] students) {
-
         double sum = 0;
         double globalAverage = 0;
 
@@ -41,14 +40,12 @@ public class StudentsInfo {
     }
 
     private static Student [] fillArray (Student [] students) {
-
         Scanner in = new Scanner (System.in);
         String lastName;
         String firstName;
         double averageGrade;
 
         for (int i = 0; i < students.length; i++) {
-
             System.out.print ("Enter student last name: ");
             lastName = in.nextLine();
             System.out.print ("Enter student first name: ");
@@ -56,7 +53,6 @@ public class StudentsInfo {
             System.out.print ("Enter student average grade: ");
             averageGrade = Double.parseDouble (in.nextLine());
             students[i] = new Student (lastName, firstName, averageGrade);
-
         }
 
         return students;
