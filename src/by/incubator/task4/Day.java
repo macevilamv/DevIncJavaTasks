@@ -24,6 +24,12 @@ enum Day {
     }
 
     public static void showInfo (int i) {
+
+        if (i < 1 || i > 7) {
+            System.out.println("There is no such day");
+            return;
+        }
+
         showDay (getDay (i));
     }
 
