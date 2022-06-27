@@ -3,11 +3,9 @@ package by.incubator.task3;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class testTextProcessor {
+public class TestTextProcessor {
 
     public static void processText () {
-
-        Scanner in = new Scanner(System.in);
         String string = "Hello, user! How are you?";
 
         System.out.println("\"Hello, user! How are you?\" append \"Fine!\":");
@@ -66,7 +64,6 @@ public class testTextProcessor {
         System.out.println();
 
         System.out.println(Arrays.toString(TextProcessor.processArray()));
-
     }
 
     public static void main(String[] args) {
