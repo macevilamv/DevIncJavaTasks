@@ -3,8 +3,8 @@ package by.incubator;
 public class Student {
 
     static int studentsCounter = 0;
-    final String lastName;
-    final String firstName;
+    private final String lastName;
+    private final String firstName;
     final double averageGrade;
 
     public Student (String lastName, String firstName, double averageGrade) {
@@ -12,7 +12,7 @@ public class Student {
         this.firstName = firstName;
         this.averageGrade = averageGrade;
         studentsCounter++;
-        System.out.println("Constructor with parameters is executed - " + studentsCounter);
+        System.out.println ("Constructor with parameters is executed - " + studentsCounter);
     }
 
     @Override
