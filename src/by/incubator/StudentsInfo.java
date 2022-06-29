@@ -3,76 +3,76 @@ package by.incubator;
 import java.util.Scanner;
 
 public class StudentsInfo {
+    public static void showInfo() {
+        double averageScore = 0.0d;
+        Student[] students = fillArray(createArray());
 
-    public static void showInfo () {
-      double averageScore = 0.0d;
-      Student [] students = fillArray (createArray());
+        averageScore = countAverage(students);
+        System.out.println("Average score is: " + averageScore);
 
-      averageScore = countAverage (students);
-      System.out.println ("Average score is: " + averageScore);
-
-      showStudentsBelowAvGrade (students, averageScore);
+        showStudentsBelowAvGrade(students, averageScore);
     }
 
-    private static void showStudentsBelowAvGrade (Student [] students, double averageGrade) {
-        System.out.println ("Students with grade below average: ");
+    private static void showStudentsBelowAvGrade(Student[] students, double averageGrade) {
+        System.out.println("Students with grade below average: ");
 
         for (int i = 0; i < students.length; i++) {
 
-            if (students[i].averageGrade < averageGrade) {
-                System.out.println (students[i]);
+            if (students[i].getAverageGrade() < averageGrade) {
+                System.out.println(students[i]);
             }
-
         }
-
     }
 
-    private static double countAverage (Student [] students) {
-        double sum = 0;
-        double globalAverage = 0;
+    private static double countAverage(Student[] students) {
+        double sum = 0.0d;
+        double globalAverage = 0.0d;
 
         for (int i = 0; i < students.length; i++) {
-            sum += students[i].averageGrade;
+            sum += students[i].getAverageGrade();
         }
-        globalAverage = sum / (double) Student.studentsCounter;
+        globalAverage = sum / (double) Student.getStudentsCounter();
 
         return globalAverage;
     }
 
-    private static Student [] fillArray (Student [] students) {
-        Scanner in = new Scanner (System.in);
+    private static Student[] fillArray(Student[] students) {
+
+        for (int i = 0; i < students.length; i++) {
+            students[i] = createStudent();
+        }
+        return students;
+    }
+
+    private static Student createStudent () {
+        Scanner in = new Scanner(System.in);
         String lastName;
         String firstName;
         double averageGrade;
 
-        for (int i = 0; i < students.length; i++) {
-            System.out.print ("Enter student last name: ");
-            lastName = in.nextLine();
-            System.out.print ("Enter student first name: ");
-            firstName = in.nextLine();
-            System.out.print ("Enter student average grade: ");
-            averageGrade = Double.parseDouble (in.nextLine());
-            students[i] = new Student (lastName, firstName, averageGrade);
-        }
+        System.out.print("Enter student last name: ");
+        lastName = in.nextLine();
+        System.out.print("Enter student first name: ");
+        firstName = in.nextLine();
+        System.out.print("Enter student average grade: ");
+        averageGrade = Double.parseDouble(in.nextLine());
 
-        return students;
+        return new Student(lastName, firstName, averageGrade);
     }
 
-    private static Student [] createArray () {
-        int LENGTH = 0;
-        Student [] students;
-        Scanner in = new Scanner (System.in);
+    private static Student[] createArray() {
+        int length = 0;
+        Student[] students;
+        Scanner in = new Scanner(System.in);
 
         System.out.print("Enter number of students: ");
+        length = Integer.parseInt(in.nextLine());
 
-        LENGTH = Integer.parseInt (in.nextLine());
-
-        if (LENGTH < 0 || LENGTH >= Integer.MAX_VALUE - 1) {
-            System.out.println("Number of students can't be < 1 and > 2147483646");
+        if (length < 0) {
+            System.out.println("Number of students can't be < 1");
             return new Student[0];
         }
-
-        students = new Student[LENGTH];
+        students = new Student[length];
         return students;
     }
 }
