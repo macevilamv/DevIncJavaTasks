@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OutOfMemoryList {
-    public static void main(String[] args) {
+  public static void outOfMemoryList() {
         List <Object> list = new ArrayList<>();
 
         while (true) {

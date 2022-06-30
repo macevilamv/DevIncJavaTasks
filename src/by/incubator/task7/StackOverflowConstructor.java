@@ -1,11 +1,9 @@
 package by.incubator.task7;
 
 public class StackOverflowConstructor {
+    StackOverflowConstructor constructor = new StackOverflowConstructor();
 
-    StackOverflowConstructor o = new StackOverflowConstructor();
-
-    public static void main(String[] args) {
-        StackOverflowConstructor o = new StackOverflowConstructor();
+    public static void generateOverflow() {
+        StackOverflowConstructor constructor = new StackOverflowConstructor();
     }
-
 }
