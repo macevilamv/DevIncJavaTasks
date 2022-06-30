@@ -61,18 +61,18 @@ public class StudentsInfo {
     }
 
     private static Student[] createArray() {
-        int length = 0;
         Student[] students;
-        Scanner in = new Scanner(System.in);
-
-        System.out.print("Enter number of students: ");
-        length = Integer.parseInt(in.nextLine());
-
-        if (length < 0) {
+        if (readInt() < 0) {
             System.out.println("Number of students can't be < 1");
             return new Student[0];
         }
-        students = new Student[length];
+        students = new Student[readInt()];
         return students;
+    }
+
+    private static int readInt() {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter number of students: ");
+        return Integer.parseInt(in.nextLine());
     }
 }
