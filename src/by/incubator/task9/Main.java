@@ -26,33 +26,12 @@ public class Main {
         };
     }
 
-    private static void execute(Animal animal) {
-        animal.voice();
-        animal.move();
-        animal.isHungry();
-    }
-
-    private static void execute(Animal[] animals) {
-        makeVoice(animals);
-        makeMove(animals);
-        makeHungry(animals);
-    }
-
-    private static void makeVoice(Animal[] animals) {
-        for (Animal animal : animals) {
-            animal.voice();
-        }
-    }
-
-    private static void makeMove(Animal[] animals) {
-        for (Animal animal : animals) {
-            animal.move();
-        }
-    }
-
-    private static void makeHungry(Animal[] animals) {
-        for (Animal animal : animals) {
-            animal.isHungry();
+    private static void execute(Animal ... animal) {
+        for (Animal an : animal) {
+            an.move();
+            an.voice();
+            an.isHungry();
         }
     }
 }
+
