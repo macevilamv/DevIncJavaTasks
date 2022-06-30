@@ -9,9 +9,7 @@ public class Main {
         Kangaroo kangaroo = new Kangaroo("Kangaroo 3", 4, true);
         Dragonfly dragonfly = new Dragonfly("Dragonfly 3", 6, true);
 
-        makeVoice(herd);
-        makeMove(herd);
-        makeHungry(herd);
+        execute(herd);
         execute(horse);
         execute(kangaroo);
         execute(dragonfly);
@@ -33,6 +31,12 @@ public class Main {
        animal.voice();
        animal.move();
        animal.isHungry();
+    }
+
+    private static void execute(Animal[] animals) {
+        makeVoice(animals);
+        makeMove(animals);
+        makeHungry(animals);
     }
 
     private static void makeVoice (Animal[] animals) {

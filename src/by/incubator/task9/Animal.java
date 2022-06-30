@@ -42,6 +42,6 @@ public abstract class Animal implements Moveable, Voiceable, Starveable {
     }
 
     private static String correctValue(String name) {
-        return ((name.isEmpty()) || name.equals(null)) ? "default" : name;
+        return ((name == null || name.isEmpty())) ? "default" : name;
     }
 }
