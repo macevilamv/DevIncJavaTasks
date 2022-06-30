@@ -62,11 +62,12 @@ public class StudentsInfo {
 
     private static Student[] createArray() {
         Student[] students;
-        if (readInt() < 0) {
+        int length = readInt();
+        if (length < 0) {
             System.out.println("Number of students can't be < 1");
             return new Student[0];
         }
-        students = new Student[readInt()];
+        students = new Student[length];
         return students;
     }
 
