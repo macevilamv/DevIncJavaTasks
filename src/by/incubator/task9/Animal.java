@@ -37,7 +37,7 @@ public abstract class Animal implements Moveable, Voiceable, Starveable {
         this.hasMustache = hasMustache;
     }
 
-    private static int correctValue (int foots) {
+    private static int correctValue(int foots) {
         return (foots < 0)? 0 : foots;
     }
 
