@@ -1,7 +1,6 @@
 package by.incubator.autopark;
 
 public class VehicleType {
-
     private String typeName;
     private double taxCoefficient;
 
