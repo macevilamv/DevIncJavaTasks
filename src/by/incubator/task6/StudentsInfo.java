@@ -1,4 +1,4 @@
-package by.incubator;
+package by.incubator.task6;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package by.incubator;
+package by.incubator.task6;
 
 public class Student {
     private static int studentsCounter = 0;
