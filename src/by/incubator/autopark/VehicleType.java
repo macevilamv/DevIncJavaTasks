@@ -1,5 +1,7 @@
 package by.incubator.autopark;
 
+import java.util.Objects;
+
 public class VehicleType {
     private String typeName;
     private double taxCoefficient;
@@ -35,4 +37,17 @@ public class VehicleType {
         System.out.println(typeName +", " + "\""+ taxCoefficient +"\"");
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        VehicleType that = (VehicleType) o;
+
+        return Double.compare(that.taxCoefficient, taxCoefficient) == 0 && typeName.equals(that.typeName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(typeName, taxCoefficient);
+    }
 }
