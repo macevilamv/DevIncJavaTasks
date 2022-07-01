@@ -58,9 +58,9 @@ public class TestTextProcessor {
         System.out.println(TextProcessor.outUpperCase(string));
         System.out.println();
 
-        System.out.println("\"ahahahahah\" output even characters in uppercase : ");
+        System.out.print("\"ahahahahah\" output even characters in uppercase : ");
         string = "ahahahahah";
-        System.out.println(TextProcessor.evensToUpperCase(string));
+        System.out.print(TextProcessor.evensToUpperCase(string));
         System.out.println();
 
         System.out.println(Arrays.toString(TextProcessor.processArray()));

@@ -1,9 +1,7 @@
 package by.incubator.task3;
 
 public class Test {
-
     public static void main(String[] args) {
-
         String str1 = "Java";
         String str2 = "JAVA";
         String str3 = "C#";
@@ -29,6 +27,5 @@ public class Test {
 
         str1 = null;
         System.out.println(str1 == null);
-
     }
 }
