@@ -12,6 +12,4 @@ public class EmptyFileException extends Exception{
         super(message, cause);
         this.path = filePath;
     }
-
-
 }
