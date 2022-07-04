@@ -7,10 +7,10 @@ public class Main {
     public static void main(String[] args) {
         Person[] people = initArray();
 
-        Arrays.sort(people, new Comparator() {
+        Arrays.sort(people, new Comparator <Person> () {
             @Override
-            public int compare(Object o1, Object o2) {
-                return ((Person)o1).getName().compareTo(((Person)o2).getName());
+            public int compare(Person o1, Person o2) {
+                return o1.getName().compareTo(o2.getName());
             }
         });
         System.out.println(Arrays.toString(people));
