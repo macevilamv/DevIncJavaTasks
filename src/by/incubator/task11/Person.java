@@ -1,6 +1,6 @@
 package by.incubator.task11;
 
-public class Person implements Comparable<Person>{
+public class Person implements Comparable<Person> {
     private String name;
     private int age;
 
@@ -32,7 +32,7 @@ public class Person implements Comparable<Person>{
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "Person {" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
