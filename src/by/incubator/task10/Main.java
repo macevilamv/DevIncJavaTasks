@@ -29,7 +29,6 @@ public class Main {
         } catch (EmptyFileException e) {
             e.printStackTrace();
         }
-
     }
 
     private static void readFile(String path) throws EmptyFileException {
