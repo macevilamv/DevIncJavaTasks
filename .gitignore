@@ -2,6 +2,7 @@
 /shelf/
 /workspace.xml
 /.idea/
+*.txt
 
 # Compiled class file
 *.class
