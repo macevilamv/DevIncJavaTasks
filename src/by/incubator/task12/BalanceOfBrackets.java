@@ -8,7 +8,7 @@ public class BalanceOfBrackets {
         for (char ch : string.toCharArray()) {
             if (isLeftBracket(ch)) {
                 characters.addFirst(ch);
-            } else {
+            } else if (isRightBracket(ch)){
                 if (areAntagonists(characters.peekFirst(), ch)) {
                     characters.pollFirst();
                 } else {
