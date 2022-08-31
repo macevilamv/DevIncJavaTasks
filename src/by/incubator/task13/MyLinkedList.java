@@ -77,14 +77,13 @@ public class MyLinkedList <T> implements List<T> {
         Node prev;
         Node next;
         int index;
-
         static int counter = 0;
 
         Node () {}
 
         Node (T value) {
-        this.value = value;
-        this.index = counter++;
+            this.value = value;
+            this.index = counter++;
         }
 }
 
