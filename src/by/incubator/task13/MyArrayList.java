@@ -3,11 +3,11 @@ package by.incubator.task13;
 import java.util.*;
 
 public class MyArrayList<T> implements List<T> {
+    private final static Object [] ZERO_CAPACITY_ARRAY = {};
     private final int DEFAULT_CAPACITY = 10;
     private int capacity = 0;
     private int size = 0;
     private Object[] buffer;
-    private final static Object [] ZERO_CAPACITY_ARRAY = {};
 
     public MyArrayList() {
         buffer = new Object[DEFAULT_CAPACITY];
@@ -19,8 +19,9 @@ public class MyArrayList<T> implements List<T> {
 
         if (capacity == 0) {
             buffer = ZERO_CAPACITY_ARRAY;
+        } else {
+            buffer = new Object[capacity];
         }
-        buffer = new Object[capacity];
     }
 
     @Override
@@ -35,13 +36,12 @@ public class MyArrayList<T> implements List<T> {
 
     @Override
     public T remove(int index) {
+        if (index < 0 || index >= size)
+            throw new IndexOutOfBoundsException("Error! Unacceptable index value.");
+
         T rmObj = (T) buffer[index];
 
-        if (size - 1 - index >= 0) {
-            System.arraycopy(buffer, index + 1, buffer, index, size - index - 1);
-        } else {
-            throw new IllegalArgumentException("Error! Unacceptable index value.");
-        }
+        System.arraycopy(buffer, index + 1, buffer, index, size - index - 1);
         buffer[size - 1] = null;
         size--;
 
@@ -55,6 +55,9 @@ public class MyArrayList<T> implements List<T> {
 
     @Override
     public T get(int index) {
+        if (index < 0 || index >= size)
+            throw new IndexOutOfBoundsException("Error! Unacceptable index value.");
+
         return (T) buffer[index];
     }
 
