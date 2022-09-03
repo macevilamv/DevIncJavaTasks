@@ -50,7 +50,7 @@ public class MyHashMap<K,V> implements Map<K,V> {
 
        if (table[index] == null) {
            table[index] = new Node<>(key, value);
-       } else if (table[index] != null && table[index].key != key) {
+       } else if (table[index].key != key) {
            added = new Node<>(key, value);
            added.next = table[index];
            table[index] = added;
@@ -74,6 +74,7 @@ public class MyHashMap<K,V> implements Map<K,V> {
     @Override
     public V remove(Object key) {
         int index = indexFor(hash((K) key));
+        Node<K,V> rmObj = table[index];
 
         if (table[index].next == null) {
             table[index] = null;
@@ -82,7 +83,7 @@ public class MyHashMap<K,V> implements Map<K,V> {
         }
         size--;
 
-        return null;
+        return rmObj.value;
     }
 
     @Override
@@ -90,7 +91,7 @@ public class MyHashMap<K,V> implements Map<K,V> {
         return (get(key) == null)? defaultValue : get(key);
     }
 
-    static class Node<K,V> implements Map.Entry<K,V> {
+    private static class Node<K,V> implements Map.Entry<K,V> {
         final K key;
         V value;
         Node<K,V> next;
