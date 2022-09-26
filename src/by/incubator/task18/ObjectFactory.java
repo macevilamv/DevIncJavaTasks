@@ -10,7 +10,7 @@ public class ObjectFactory {
         if (ClassValidatorUtils.validateClass(tClass)) {
             return tClass.getConstructor().newInstance();
         } else {
-            throw new InstantiationException("Error! Class is not suited to be used in the method.");
+            throw new ClassIsNotSuitedException("Error! Class is not suited to be used in the method.");
         }
     }
 }
